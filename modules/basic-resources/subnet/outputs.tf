@@ -4,19 +4,12 @@
 # Attributions not necessary, but are appreciated.
 # Author      : Khiem Nguyen (Kintex98)
 # Created     : August 17, 2022
-# Description : The main module calls to generate an SNS queue
-# Filename    : main.tf
+# Description : Creates necessary outputs to import in other automation
+# Filename    : outputs.tf
 #
 #############################################################################################
 
-# aws_vpc.my_vpc
-resource "aws_vpc" "my_vpc" {
-  cidr_block           = var.vpc_cidr
-  instance_tenancy     = "default"
-  enable_dns_hostnames = "true"
-  enable_dns_support   = "true"
-
-  tags = {
-    Name = var.vpc_name
-  }
+output "subnet" {
+  description = "Contains all metadata about the subnet"
+  value       = aws_subnet.my_subnet
 }

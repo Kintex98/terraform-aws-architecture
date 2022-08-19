@@ -9,6 +9,16 @@
 #
 #############################################################################################
 
+output "public_subnet_cidr" {
+  description = "The cidr block of the public subnet"
+  value = module.public_subnet.subnet.cidr_block
+}
+
+output "public_subnet_id" {
+  description = "The name of the public subnet"
+  value = module.public_subnet.subnet.id
+}
+
 output "vpc_arn" {
   description = "The arn of the VPC"
   value       = module.main_vpc.vpc.arn
